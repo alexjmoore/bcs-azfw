@@ -5,4 +5,13 @@ steps:
 - script: php -l simple-app/index.php
   displayName: 'check PHP syntax'
 
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: $(Build.SourcesDirectory)
+    targetFolder: $(Build.ArtifactStagingDirectory)
+    contents: |
+      **/*
+      !.git/**/*
+
 - task: PublishBuildArtifacts@1
