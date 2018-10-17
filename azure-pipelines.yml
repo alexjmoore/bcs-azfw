@@ -12,8 +12,10 @@ variables:
   imageName: $(appName):$(build.buildId)'
 
 steps:
+- script: docker build -f $(appName)/Dockerfile -t $(imageName) .
+  displayName: 'docker build'
+
 - script: |
-    docker build -f $(appName)/Dockerfile -t $(imageName) .
     docker login -u $(acr.id) -p $(acr.key) $(registryName).azurecr.io
     docker push $(registryName).azurecr.io/$(imageName)
-  displayName: 'docker build'
+  displayName: 'docker push to ACR'
