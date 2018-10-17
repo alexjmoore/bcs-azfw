@@ -2,8 +2,16 @@ FROM ubuntu:latest
 
 MAINTAINER Alex Moore version: 0.1
 
-RUN echo "Europe/London" > /etc/timezone
-RUN apt-get update && apt-get install -y apache2 php libapache2-mod-php && apt-get clean && rm -rf /var/lib/apt/lists/*
+## for apt to be noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+ENV DEBCONF_NONINTERACTIVE_SEEN true
+
+RUN echo "tzdata tzdata/Areas select Europe" > /tmp/preseed.txt; \
+    echo "tzdata tzdata/Zones/Europe select Berlin" >> /tmp/preseed.txt; \
+    debconf-set-selections /tmp/preseed.txt && \
+    apt-get update && \
+    apt-get install -y apache2 php libapache2-mod-php && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN a2enmod php7.0
 
