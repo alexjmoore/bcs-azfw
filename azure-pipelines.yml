@@ -8,8 +8,12 @@ pool:
 
 variables:
   appName: 'example-docker-app'
+  registryName: 'bcsregistry'
   imageName: $(appName):$(build.buildId)'
 
 steps:
-- script: docker build -f $(appName)/Dockerfile -t $(imageName) .
+- script: 
+    docker build -f $(appName)/Dockerfile -t $(imageName) .
+    docker login -u $(acr.id) -p $(acr.key) $(registryName).azurecr.io
+    docker push $(registryName).azurecr.io/$(imageName)
   displayName: 'docker build'
