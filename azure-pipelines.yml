@@ -16,6 +16,6 @@ steps:
   displayName: 'docker build'
 
 - script: |
-    docker login -u $(acr.id) -p $(acr.key) $(registryName) |
+    docker login -u $(acr.id) -p $(acr.key) $(registryName) 
     docker push $(imageName)
   displayName: 'docker push to ACR'
