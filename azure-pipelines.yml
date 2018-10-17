@@ -12,7 +12,7 @@ variables:
   imageName: '$(appName):$(build.buildId)'
 
 steps:
-- script: ls
+- script: docker build -t $(imageName) $(appName)/
   displayName: 'docker build'
 
 - script: |
