@@ -11,7 +11,10 @@ steps:
     sourceFolder: $(Build.SourcesDirectory)
     targetFolder: $(Build.ArtifactStagingDirectory)
     contents: |
-      **/*
+      simple-app/**/*
       !.git/**/*
 
 - task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'drop' 
