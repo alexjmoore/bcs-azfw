@@ -5,9 +5,4 @@ steps:
 - script: php -l simple-app/index.php
   displayName: 'check PHP syntax'
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(system.defaultWorkingDirectory)'
-    includeRootFolder: false
-
 - task: PublishBuildArtifacts@1
