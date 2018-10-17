@@ -9,7 +9,7 @@ pool:
 variables:
   appName: 'example-docker-app'
   registryName: 'bcsregistry'
-  imageName: $(appName):$(build.buildId)'
+  imageName: '$(appName):$(build.buildId)'
 
 steps:
 - script: docker build -f $(appName)/Dockerfile -t $(imageName) .
