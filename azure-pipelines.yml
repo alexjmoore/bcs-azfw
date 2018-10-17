@@ -10,4 +10,4 @@ steps:
     rootFolderOrFile: '$(system.defaultWorkingDirectory)'
     includeRootFolder: false
 
-- task: PublishBuildArtifacts@1'
+- task: PublishBuildArtifacts@1
