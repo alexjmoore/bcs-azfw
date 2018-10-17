@@ -2,7 +2,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-- script: php -l simple-app/index.php
+- script: php -l simple-app/src/index.php
   displayName: 'check PHP syntax'
 
 
