@@ -7,8 +7,9 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'example-docker-app:$(build.buildId)'
+  appName: 'example-docker-app'
+  imageName: $(appName):$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
+- script: docker build -f $(appName)/Dockerfile -t $(imageName) .
   displayName: 'docker build'
