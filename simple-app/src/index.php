@@ -41,9 +41,9 @@
             <img src="bcs.png">
         </div>
         <div class="info">
-            <?
+            <?php
                 if(getenv('MY_NODE_NAME')) {
-                    echo "Running on k8s node: " . getenv('MY_NODE_NAME') . "<br><br>";  
+                    echo "Running on node: " . getenv('MY_NODE_NAME') . "<br><br>";  
                 }
                 echo "Container: " . gethostname() . " / " . $_SERVER['SERVER_ADDR'];
             ?>
