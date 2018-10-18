@@ -45,7 +45,7 @@
                 if(getenv('MY_NODE_NAME')) {
                     echo "Running on node: " . getenv('MY_NODE_NAME') . "<br><br>";  
                 }
-                echo "Container: " . gethostname() . " / " . $_SERVER['SERVER_ADDR'];
+                echo "VM: " . gethostname() . " / " . $_SERVER['SERVER_ADDR'];
             ?>
         </div>
     </body>
