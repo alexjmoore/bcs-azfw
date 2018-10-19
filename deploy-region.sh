@@ -100,4 +100,8 @@ echo creating storage account...
 az storage account create -n $STORAGE -g $NAME --kind StorageV2 --sku Standard_LRS
 
 strip
+echo Firewall IP:
+echo `az network public-ip show -g $NAME -n $NAME-FWIP --query ipAddress --output json` | tr -d [\"]
+echo Instance IPs:
+echo `az vmss nic list -g $NAME --vmss-name $NAME-APP --query "[].[ipConfigurations[0].privateIpAddress]" --output tsv`
 echo Done!

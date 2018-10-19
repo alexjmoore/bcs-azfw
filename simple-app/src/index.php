@@ -16,10 +16,15 @@
                 font: 30px arial, sans-serif;"
             }
 
+            .location {
+                top: 25%;
+                font: 20px arial, sans-serif;"
+            }
+
             .capside {
                 top: 30%;
             }
-
+            
             .bcs {
                 top: 50%;
             }
@@ -34,6 +39,20 @@
         <div class="hello">
             Hello world. Today is <?= date('l \t\h\e jS') ?>.
         </div>
+        <div class="location">
+            <?php
+                $location = exec('curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/location?api-version=2017-08-01&format=text"');
+                echo "Running Location is: " . $location . "<br><br>";
+
+                if ($location == "westeurope") {
+                    echo '<img src="eu.gif">';
+                }
+                if ($location == "southeastasia") {
+                    echo '<img src="singapore.gif">';
+                }
+            ?>
+            <img src="capside.png">
+        </div>
         <div class="capside">
             <img src="capside.png">
         </div>
@@ -42,9 +61,6 @@
         </div>
         <div class="info">
             <?php
-                if(getenv('MY_NODE_NAME')) {
-                    echo "Running on node: " . getenv('MY_NODE_NAME') . "<br><br>";  
-                }
                 echo "VM: " . gethostname() . " / " . $_SERVER['SERVER_ADDR'];
             ?>
         </div>
