@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Simple BCS Docker Demo</title>
-
+        <title>Simple Application</title>
         <style>
             div {
                 padding: 10px;
                 display: block;
                 text-align: center;               
             }
-
             .hello {
                 font: 30px arial, sans-serif;"
             }
-
             .location {
                 font: 20px arial, sans-serif;"
                 font-weight: bold;
             }
-
             .logos {
                 display: inline-block;
                 vertical-align: middle;
             }
-
             .info {
                 font: 20px arial, sans-serif;"
             }
