@@ -8,6 +8,7 @@ cp src/* /var/www/site
 cp apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 echo storing region
 LOCATION=`curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/location?api-version=2017-08-01&format=text"`
-echo SetEnv HTTP_LOCATION "$LOCATION" > /var/www/site/.htaccess
+echo SetEnv HTTP_LOCATION $LOCATION > /var/www/site/.htaccess
 echo restarting Apache
-systemctl restart apache2
+service apache2 restart
+date

@@ -5,43 +5,38 @@
 
         <style>
             div {
-                left: 50%;
-                position: absolute; 
-                margin-right: -50%; 
-                transform: translate(-50%, -50%);
+                padding: 10px;
+                display: block;
+                text-align: center;               
             }
 
             .hello {
-                top:20%;
                 font: 30px arial, sans-serif;"
             }
 
             .location {
-                top: 25%;
                 font: 20px arial, sans-serif;"
+                font-weight: bold;
             }
 
-            .capside {
-                top: 30%;
-            }
-            
-            .bcs {
-                top: 50%;
+            .logos {
+                display: inline-block;
+                vertical-align: middle;
             }
 
             .info {
-                top:70%;
                 font: 20px arial, sans-serif;"
             }
         </style>
     </head>
     <body>
         <div class="hello">
-            Hello world. Today is <?= date('l \t\h\e jS') ?>.
+            Today is <?= date('l \t\h\e jS') ?>.
         </div>
         <div class="location">
             <?php
-                echo "Running Location is: " . $_ENV["HTTP_LOCATION"] . "<br><br>";
+                $location = $_SERVER["HTTP_LOCATION"];
+                echo "Running Location is: " . $location . "<br><br>";
 
                 if ($location == "westeurope") {
                     echo '<img src="eu.gif">';
@@ -50,21 +45,19 @@
                     echo '<img src="singapore.gif">';
                 }
             ?>
-            <img src="capside.png">
         </div>
-        <div class="capside">
-            <img src="capside.png">
-        </div>
-        <div class="bcs">
-            <img src="bcs.png">
+        <div>
+            <div class="logos">
+                <img src="capside.png">
+            </div>
+            <div class="logos">
+                <img src="bcs.png">
+            </div>
         </div>
         <div class="info">
             <?php
                 echo "VM: " . gethostname() . " / " . $_SERVER['SERVER_ADDR'];
             ?>
         </div>
-        <?php
-            phpinfo()
-        ?>
     </body>
 </html>
