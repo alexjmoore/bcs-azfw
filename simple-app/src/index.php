@@ -41,8 +41,7 @@
         </div>
         <div class="location">
             <?php
-                $location = exec('curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/location?api-version=2017-08-01&format=text"');
-                echo "Running Location is: " . $location . "<br><br>";
+                echo "Running Location is: " . $_ENV["HTTP_LOCATION"] . "<br><br>";
 
                 if ($location == "westeurope") {
                     echo '<img src="eu.gif">';
