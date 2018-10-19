@@ -102,7 +102,7 @@ az storage account create -n $STORAGE -g $NAME --kind StorageV2 --sku Standard_L
 ### Done ###
 strip
 echo Firewall IP : `az network public-ip show -g $NAME -n $NAME-FWIP --query ipAddress --output json` | tr -d [\"]
-echo Balancer IP : `az network lb show -g BCS-EU -n BCS-EU-AppLB --output json --query "frontendIpConfigurations[0].privateIpAddress"` | tr -d [\"]
+echo Balancer IP : `az network lb show -g $NAME -n $NAME-AppLB --output json --query "frontendIpConfigurations[0].privateIpAddress"` | tr -d [\"]
 echo Instance IPs: `az vmss nic list -g $NAME --vmss-name $NAME-APP --query "[].[ipConfigurations[0].privateIpAddress]" --output tsv`
 echo 
 echo Done!
