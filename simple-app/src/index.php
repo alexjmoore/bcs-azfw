@@ -63,5 +63,8 @@
                 echo "VM: " . gethostname() . " / " . $_SERVER['SERVER_ADDR'];
             ?>
         </div>
+        <?php
+            phpinfo()
+        ?>
     </body>
 </html>
