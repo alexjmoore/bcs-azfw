@@ -6,7 +6,7 @@ while getopts g:l: option
 do
     case "${option}"
     in
-        n) NAME=${OPTARG};;
+        g) NAME=${OPTARG};;
         l) LOCATION=${OPTARG};;
         *) usage;;
     esac
