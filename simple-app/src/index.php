@@ -15,18 +15,15 @@
                 font: 20px arial, sans-serif;
                 font-weight: bold;
             }
-            .capside {
+            .logos {
                 display: inline-block;
                 vertical-align: middle;
-            }
-            .bcs {
-                display: inline-block;
-                vertical-align: middle;
-                max-width: 20%;
-                max-height: 20%;
             }
             .info {
                 font: 20px arial, sans-serif;
+            }
+            #bcslogo {
+                max-width: 60%;
             }
         </style>
     </head>
@@ -48,11 +45,11 @@
             ?>
         </div>
         <div>
-            <div class="capside">
+            <div class="logos">
                 <img src="capside.png">
             </div>
-            <div class="bcs">
-                <img src="bcs-large.jpg">
+            <div class="logos">
+                <img id="bcslogo" src="bcs-large.jpg">
             </div>
         </div>
         <div class="info">
