@@ -22,10 +22,10 @@
             .info {
                 font: 20px arial, sans-serif;
             }
-            
+
             img.resize {
-                max-width: 50%;
-                max-height: 50%;
+                max-width: 20%;
+                max-height: 20%;
             }
         </style>
     </head>
