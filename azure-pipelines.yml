@@ -5,7 +5,6 @@ steps:
 - script: php -l simple-app/src/index.php
   displayName: 'check PHP syntax'
 
-
 - task: CopyFiles@2
   inputs:
     sourceFolder: $(Build.SourcesDirectory)
