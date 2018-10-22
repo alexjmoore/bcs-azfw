@@ -35,17 +35,22 @@ az network vnet create -n $NAME-VNet -g $NAME \
   --address-prefixes 10.1.0.0/16 \
   --subnet-name App --subnet-prefixes 10.1.2.0/24
 
-echo creating firewall subnet...
-az network vnet subnet create -g $NAME -n AzureFirewallSubnet \
-  --vnet-name $NAME-VNet --address-prefixes 10.1.1.0/24
-
 echo creating route table...
 az network route-table create -g $NAME -n $NAME-RT
 
 echo creating route entry...
 az network route-table route create -g $NAME -n $NAME-FWROUTE \
   --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance \
-  --route-table-name $NAME-RT --next-hop-ip-address 10.1.1.10
+  --route-table-name $NAME-RT --next-hop-ip-address 10.1.1.4
+
+echo creating firewall subnet...
+az network vnet subnet create -g $NAME -n AzureFirewallSubnet \
+  --vnet-name $NAME-VNet --address-prefixes 10.1.1.0/24
+
+echo creating app subnet...
+az network vnet subnet create -g $NAME -n App \
+  --vnet-name $NAME-VNet --address-prefixes 10.1.2.0/24 
+  --route-table $NAME-RT
 
 echo creating firewall public ip...
 az network public-ip create -g $NAME -n $NAME-FWIP --sku Standard
@@ -62,7 +67,7 @@ az network firewall create -g $NAME -n $NAME-FW
 
 echo create firewall ip-config...
 az network firewall ip-config create -g $NAME -n $NAME-IPConf --firewall-name $NAME-FW \
-  --public-ip-address $NAME-FWIP --private-ip-address 10.1.1.10 --vnet-name $NAME-VNet
+  --public-ip-address $NAME-FWIP --private-ip-address 10.1.1.4 --vnet-name $NAME-VNet
 
 #### Load Balancer ###
 strip
