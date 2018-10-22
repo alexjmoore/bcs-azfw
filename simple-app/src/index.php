@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Simple Application</title>
+        <title>Simple Application!</title>
         <style>
             div {
                 padding: 10px;
