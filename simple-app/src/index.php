@@ -22,8 +22,8 @@
             .bcs {
                 display: inline-block;
                 vertical-align: middle;
-                max-width: 25%;
-                max-height: 25%;
+                max-width: 20%;
+                max-height: 20%;
             }
             .info {
                 font: 20px arial, sans-serif;
