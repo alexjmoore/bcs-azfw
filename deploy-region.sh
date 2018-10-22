@@ -107,11 +107,20 @@ az storage account create -n $STORAGE -g $NAME --kind StorageV2 --sku Standard_L
 echo adding inbound NAT rule...
 FIREWALLIP=$( echo `az network public-ip show -g $NAME -n $NAME-FWIP --query ipAddress --output json` | tr -d [\"] )
 LBIP=$( echo `az network lb show -g $NAME -n $NAME-AppLB --output json --query "frontendIpConfigurations[0].privateIpAddress"` | tr -d [\"] )
-az network firewall nat-rule create -g $NAME -f $NAME-FW -n App -c AppRules \
+az network firewall nat-rule create -g $NAME -f $NAME-FW -n App -c InboundAppRules \
   --action Dnat --priority 200 --destination-addresses $FIREWALLIP --destination-ports 80 \
   --translated-address $LBIP --translated-port 80 \
   --source-addresses "*" --protocols TCP --description "inbound nat rule to app"
 
+echo adding Azure storage rule...
+az network firewall application-rule create -g $NAME -f $NAME-FW -n AzureStorage -c OutboundAppRules \
+  --action Allow --priority 200 --source-addresses "10.1.2.0/24" --protocols "Https=443" \
+  --target-fqdns "*.blob.core.windows.net" --description "outbound rule from app to azure storage"
+
+echo adding Ubuntu apt repo rule...
+az network firewall application-rule create -g $NAME -f $NAME-FW -n Ubuntu -c OutboundAppRules \
+  --source-addresses "10.1.2.0/24" --protocols "Https=443" "Http=80" \
+  --target-fqdns "*.ubuntu.com" --description "outbound rule from app to ubuntu apt repo"
 
 ### Done ###
 strip
