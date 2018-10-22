@@ -22,6 +22,10 @@
             .info {
                 font: 20px arial, sans-serif;"
             }
+            img.resize {
+                max-width: 50%;
+                max-height: 50%;
+            }
         </style>
     </head>
     <body>
@@ -46,7 +50,7 @@
                 <img src="capside.png">
             </div>
             <div class="logos">
-                <img src="bcs-large.jpg">
+                <img class="resize" src="bcs-large.jpg">
             </div>
         </div>
         <div class="info">
