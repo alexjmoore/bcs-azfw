@@ -1,8 +1,8 @@
 #!/bin/bash
-usage() { echo "Usage: $0 -n <string app name> -l <string azure regon>" 1>&2; exit 1; }
+usage() { echo "Usage: $0 -g <string group name> -l <string azure regon>" 1>&2; exit 1; }
 strip() { printf %"$(tput cols)"s |tr " " "="; }
 
-while getopts n:l: option
+while getopts g:l: option
 do
     case "${option}"
     in
@@ -49,7 +49,7 @@ az network vnet subnet create -g $NAME -n AzureFirewallSubnet \
 
 echo creating app subnet...
 az network vnet subnet create -g $NAME -n App \
-  --vnet-name $NAME-VNet --address-prefixes 10.1.2.0/24 
+  --vnet-name $NAME-VNet --address-prefixes 10.1.2.0/24 \
   --route-table $NAME-RT
 
 echo creating firewall public ip...
