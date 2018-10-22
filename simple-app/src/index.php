@@ -24,8 +24,8 @@
             }
 
             img.resize {
-                max-width: 20%;
-                max-height: 20%;
+                max-width: 25%;
+                max-height: 25%;
             }
         </style>
     </head>
