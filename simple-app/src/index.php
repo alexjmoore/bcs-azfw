@@ -9,10 +9,10 @@
                 text-align: center;               
             }
             .hello {
-                font: 30px arial, sans-serif;"
+                font: 30px arial, sans-serif;
             }
             .location {
-                font: 20px arial, sans-serif;"
+                font: 20px arial, sans-serif;
                 font-weight: bold;
             }
             .logos {
@@ -20,8 +20,9 @@
                 vertical-align: middle;
             }
             .info {
-                font: 20px arial, sans-serif;"
+                font: 20px arial, sans-serif;
             }
+            
             img.resize {
                 max-width: 50%;
                 max-height: 50%;
