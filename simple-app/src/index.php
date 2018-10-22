@@ -22,9 +22,6 @@
             .info {
                 font: 20px arial, sans-serif;
             }
-            #bcslogo {
-                max-width: 60%;
-            }
         </style>
     </head>
     <body>
@@ -49,7 +46,7 @@
                 <img src="capside.png">
             </div>
             <div class="logos">
-                <img id="bcslogo" src="bcs-large.jpg">
+                <img src="bcs.png">
             </div>
         </div>
         <div class="info">
