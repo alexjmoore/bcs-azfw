@@ -46,7 +46,7 @@
                 <img src="capside.png">
             </div>
             <div class="logos">
-                <img src="bcs.png">
+                <img src="bcs-large.jpg">
             </div>
         </div>
         <div class="info">
