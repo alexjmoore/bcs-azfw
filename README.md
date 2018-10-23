@@ -1,5 +1,5 @@
-# bcs-azfw
-Samples from the Azure Firewall &amp; Azure Front Door presentation
+# Material for the BCS presentation on Azure Firewall &amp; Azure Front Door
+Samples from the Azure Firewall &amp; Azure Front Door presentation of 23rd October 2018
 
 ## Azure CLI steps to use these features
 
