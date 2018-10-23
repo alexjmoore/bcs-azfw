@@ -36,7 +36,7 @@ header("Pragma: no-cache");
         <div class="location">
             <?php
                 $location = $_SERVER["HTTP_LOCATION"];
-                echo "Application is running in: " . $location . "<br><br>";
+                echo "HELLO WORLD!<br>Application is running in: " . $location . "<br><br>";
 
                 if ($location == "westeurope") {
                     echo '<img src="eu.gif">';
