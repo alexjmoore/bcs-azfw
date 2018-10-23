@@ -31,7 +31,7 @@
         <div class="location">
             <?php
                 $location = $_SERVER["HTTP_LOCATION"];
-                echo "Application is running in: " . $location . "<br><br>";
+                echo "HELLO WORLD<BR>Application is running in: " . $location . "<br><br>";
 
                 if ($location == "westeurope") {
                     echo '<img src="eu.gif">';
