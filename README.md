@@ -22,3 +22,11 @@ az extension add --name front-door
 az extension update --name azure-firewall
 az extension update --name front-door
 ```
+
+# REMEMBER!
+
+Delete all your Azure resources after use to save yourself any surprises on costs:
+
+```
+az group delete -g <group name>
+```
